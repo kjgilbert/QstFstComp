@@ -5,14 +5,14 @@ Date: 2014-05-23
 Author: Kimberly J. Gilbert and Michael C. Whitlock
 Maintainer: Kimberly J. Gilbert <kgilbert@zoology.ubc.ca>
 Description: Compares the Qst of a single phenotypic trait
-  to the mean Fst of a series of marker loci. It calculates
-  the distribution of Qst - Fst under a model assuming
-  neutrality of noth the phenotypic trait and the genetic markers
-  from which Fst is estimated. Building upon code from Whitlock, M.C.
-  and F. Guillaume 2009, "Testing for spatially divergent selection: 
-  Comparing Qst to Fst". Genetics 183:1055-1063. If you use this procedure
-  please cite Gilbert K.J. and M.C. Whitlock "Qst Fst comparisons with
-  unbalanced half-sib designs" in prep.
+    to the mean Fst of a series of marker loci. It calculates
+    the distribution of Qst - Fst under a model assuming
+    neutrality of noth the phenotypic trait and the genetic markers
+    from which Fst is estimated. Building upon code from Whitlock, M.C.
+    and F. Guillaume 2009, "Testing for spatially divergent selection:
+    Comparing Qst to Fst". Genetics 183:1055-1063. If you use this procedure
+    please cite Gilbert K.J. and M.C. Whitlock "Qst Fst comparisons with
+    unbalanced half-sib designs" in prep.
 License: GPL-2
 Suggests:
     testthat

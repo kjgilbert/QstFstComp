@@ -7,24 +7,23 @@ QstFstComp(fst.dat, qst.dat, numpops, nsim = 1000, AFLP = FALSE,
   breeding.design, output = "concise")
 }
 \arguments{
-\item{fst.dat}{a data frame with the first column indicating population of origin and
-          the following columns representing genotypes at loci (as in hierfstat package).
-            Load hierfstat package and see data(gtrunchier) columns 2-8,
-            or type ?gtrunchier in console for further description
-            If using AFLPs, this is a data frame of q_hat values, with pops in columns, loci in rows
-            and the corresponding q_hat variances in the following columns}
+\item{fst.dat}{A data frame with the first column indicating population of origin and
+         the following columns representing genotypes at loci; see the
+         README \url{https://github.com/kjgilbert/QstFstComp/blob/master/README.md} for further description.
+         If using AFLPs, this is a data frame of q_hat values, with pops in columns, loci in rows
+         and the corresponding q_hat variances in the following columns, and \code{AFLP=TRUE} must be designated.}
 
-\item{qst.dat}{the input table of the breeding data;
-    \itemize{
-       \item    For breeding.design = "half.sib.sire":  qst.dat should have four
+\item{qst.dat}{the input table of the breeding data
+ \itemize{
+     \item    For \code{breeding.design = "half.sib.sire"}:  qst.dat should have four
           columns in this order: population, sire, dam, and the trait value of
           the individual. Each population, sire, and dam should have unique
           names or numbers.
-        \item     For breeding.design = "half.sib.dam":  qst.dat should have three
+     \item    For \code{breeding.design = "half.sib.dam"}:  qst.dat should have three
           columns in this order: population, dam, and the trait value of
           the individual. Each population and dam should have unique
           names or numbers.
-    }}
+ }}
 
 \item{numpops}{number of populations in the sample}
 
@@ -34,40 +33,43 @@ QstFstComp(fst.dat, qst.dat, numpops, nsim = 1000, AFLP = FALSE,
 \item{AFLP}{whether or not to use AFLP data}
 
 \item{breeding.design}{the breeding design used when collecting the trait data
-    OPTIONS for breeding design:
-    \enumerate{
-    \item     "half.sib.sire" is a half sib design with dam nested within sire nested within
-            population which works for either balanced or unbalanced sampling designs
-    \item     "half.sib.dam" is a half sib design with dam nested within population
-            which works for either balanced or unbalanced sampling designs
-    }}
+ OPTIONS for breeding design:
+ \enumerate{
+ \item     "half.sib.sire" is a half sib design with dam nested within sire nested within
+         population which works for either balanced or unbalanced sampling designs
+ \item     "half.sib.dam" is a half sib design with dam nested within population
+         which works for either balanced or unbalanced sampling designs
+ }}
 
-\item{output}{whether to output full or concise results}
+\item{output}{whether to output full or concise results, see details below}
 }
 \value{
 Returns either a concise list of a subset of results or a full list with all possible results:
 
-	Concise list returns (default)
-	\itemize{
-	\item 	the calculated difference between Qst and Fst with 95% critical values,
-	\item 	one- and two- tailed p-values for this difference, and
-	\item 	the additive genetic variance for the trait with 95% confidence intervals
-	}
-	Full list returns
-	\itemize{
-			\item  the calculated difference between Qst and Fst with 95% critical values,
-			\item  one- and two- tailed p-values for this difference,
-			\item  the Fst as calculated from the genetic data provided, with 95% confidence intervals,
-			\item  the resampled Fst as calculated from bootstrapping across simulations, with standard deviation and 95% CI's,
-			\item  the resampled neutral Qst as calculated from bootstrapping across simulations, with standard deviation and 95% critical values,
-			\item  the ANOVA table for the calculated means squared, n coefficients, and degrees of freedom,
-			\item  the additive genetic variance for the trait with 95% confidence intervals, and
-			\item  the coefficient of additive genetic variance for the trait with 95% confidence intervals
-	}
+ Concise list returns (default)
+ \itemize{
+ \item 	the calculated difference between Qst and Fst with 95\% critical values,
+ \item 	one- and two- tailed p-values for this difference, and
+ \item 	the additive genetic variance for the trait with 95\% confidence intervals
+ }
+ Full list returns
+ \itemize{
+ 		\item  the calculated difference between Qst and Fst with 95% critical values,
+ 		\item  one- and two- tailed p-values for this difference,
+ 		\item  the Fst as calculated from the genetic data provided, with 95\% confidence intervals,
+ 		\item  the resampled Fst as calculated from bootstrapping across simulations, with standard deviation and 95\% CI's,
+ 		\item  the resampled neutral Qst as calculated from bootstrapping across simulations, with standard deviation and 95\% critical values,
+ 		\item  the ANOVA table for the calculated means squared, n coefficients, and degrees of freedom,
+ 		\item  the additive genetic variance for the trait with 95\% confidence intervals, and
+ 		\item  the coefficient of additive genetic variance for the trait with 95\% confidence intervals
+ }
 }
 \description{
+Compares the QST of a single phenotypic trait to the mean FST of series of marker loci.
+It calculates the distribution of QST – FST under a model assuming neutrality of both
+the phenotypic trait and the genetic markers from which FST is estimated.
 Returns the simulated estimates of Qst - Fst under neutrality following the procedure
-described in Whitlock & Guillaume (2009). Also returns the simulated estimates of Fst
-and Qst used to compute the null distribution.
+described in Gilbert and Whitlock (2014) and Whitlock & Guillaume (2009). Also returns
+the simulated estimates of Fst and Qst used to compute the null distribution.
 }
 

@@ -10,7 +10,7 @@ QstFstComp(fst.dat, qst.dat, numpops, nsim = 1000, AFLP = FALSE,
 \item{fst.dat}{A data frame with the first column indicating population of origin and
          the following columns representing genotypes at loci; see the
          README \url{https://github.com/kjgilbert/QstFstComp/blob/master/README.md} for further description.
-         If using AFLPs, this is a data frame of q_hat values, with pops in columns, loci in rows
+         If using AFLPs, this is a data frame of \^{q} values, with pops in columns, loci in rows
          and the corresponding q_hat variances in the following columns, and \code{AFLP=TRUE} must be designated.}
 
 \item{qst.dat}{the input table of the breeding data

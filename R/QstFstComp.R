@@ -75,9 +75,6 @@
 #'  		\item  the coefficient of additive genetic variance for the trait with 95\% confidence intervals
 #'  }
 #'
-#' @ references
-#'
-#' @ examples
 #'
 #' @export
 

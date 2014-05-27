@@ -54,7 +54,7 @@ Returns either a concise list of a subset of results or a full list with all pos
  }
  Full list returns
  \itemize{
- 		\item  the calculated difference between Qst and Fst with 95% critical values,
+ 		\item  the calculated difference between Qst and Fst with 95\% critical values,
  		\item  one- and two- tailed p-values for this difference,
  		\item  the Fst as calculated from the genetic data provided, with 95\% confidence intervals,
  		\item  the resampled Fst as calculated from bootstrapping across simulations, with standard deviation and 95\% confidence intervals,

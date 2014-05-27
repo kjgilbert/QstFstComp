@@ -4,7 +4,7 @@
 
 An R function to compare the *Q<sub>ST</sub>* of a single phenotypic trait to the mean *F<sub>ST</sub>* of series of marker loci. It calculates the distribution of *Q<sub>ST</sub>* – *F<sub>ST</sub>* under a model assuming neutrality of both the phenotypic trait and the genetic markers from which *F<sub>ST</sub>* is estimated.
 
-This is the analysis that we introduced in [Gilbert and Whitlock 2014](DOI goes here or url). If you use this procedure, please cite this paper which describes the use of these procedures and their derivation. The method (and this code) is based on [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055) which may also be cited.
+This is the analysis that we introduced in [Gilbert and Whitlock in prep.](DOI goes here or url). If you use this procedure, please cite this paper which describes the use of these procedures and their derivation. The method (and this code) is based on [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055) which may also be cited.
 
 
 The package can be installed using [devtools](https://github.com/hadley/devtools), which itself can be installed from CRAN with
@@ -20,7 +20,7 @@ library(devtools)
 install_github("kjgilbert/QstFstComp")
 library(QstFstComp)
 ```
-and the package will be installed. Functions for calculating *F<sub>ST</sub>* depend on the package [`hierfstat`](http://cran.r-project.org/web/packages/hierfstat/index.html) by Jerome Goudet.
+and the package will be installed. Functions for calculating *F<sub>ST</sub>* according to [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) depend on the package [`hierfstat`](http://cran.r-project.org/web/packages/hierfstat/index.html) by Jerome Goudet.
 <!-- or can alternatively be installed with devtools::install github("kjgilbert/QstFstComp") where there should be an underscore between "install" and "github"-->
 
 There is only one function to run the analysis from the package: `QstFstComp`.  See the help page `?QstFstComp` for more information once installed and loaded.

@@ -20,7 +20,7 @@ library(devtools)
 install_github("kjgilbert/QstFstComp")
 library(QstFstComp)
 ```
-and the package will be installed.
+and the package will be installed. Functions for calculating *F<sub>ST</sub>* depend on the package [`hierfstat`](http://cran.r-project.org/web/packages/hierfstat/index.html) by Jerome Goudet.
 <!-- or can alternatively be installed with devtools::install github("kjgilbert/QstFstComp") where there should be an underscore between "install" and "github"-->
 
 There is only one function to run the analysis from the package: `QstFstComp`.  See the help page `?QstFstComp` for more information once installed and loaded.

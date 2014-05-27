@@ -20,7 +20,7 @@ library(devtools)
 install_github("kjgilbert/QstFstComp")
 library(QstFstComp)
 ```
-and the package will be installed. Functions for calculating *F<sub>ST</sub>* according to [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) depend on the package [`hierfstat`](http://cran.r-project.org/web/packages/hierfstat/index.html) by Jerome Goudet.
+and the package will be installed and open. Functions for calculating *F<sub>ST</sub>* according to [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) depend on the package [`hierfstat`](http://cran.r-project.org/web/packages/hierfstat/index.html) by Jerome Goudet.
 <!-- or can alternatively be installed with devtools::install github("kjgilbert/QstFstComp") where there should be an underscore between "install" and "github"-->
 
 There is only one function to run the analysis from the package: `QstFstComp`.  See the help page `?QstFstComp` for more information once installed and loaded.
@@ -60,8 +60,6 @@ Data are expected to be in a .csv format, with the first line giving column name
 
 *F<sub>ST</sub>* is calculated in two different ways, and the user must choose which method to use. The default is the [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) method (`AFLP = FALSE`), as first implemented in [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055). If using this method, the genetic data (fst.dat) must be a data frame with the first column indicating population of origin and the following columns representing genotypes at loci (as in hierfstat package). See the following for further information: **want to create own test data from simulations and put here instead**
 ```
-install.packages("hierfstat")
-library(hierfstat)
 data(gtrunchier)
 ?gtrunchier
 ```

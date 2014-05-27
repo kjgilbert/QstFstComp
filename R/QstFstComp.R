@@ -71,7 +71,7 @@
 #'  }
 #'  Full list returns 
 #'  \itemize{
-#'  		\item  the calculated difference between Qst and Fst with 95% critical values,
+#'  		\item  the calculated difference between Qst and Fst with 95\% critical values,
 #'  		\item  one- and two- tailed p-values for this difference,
 #'  		\item  the Fst as calculated from the genetic data provided, with 95\% confidence intervals,
 #'  		\item  the resampled Fst as calculated from bootstrapping across simulations, with standard deviation and 95\% confidence intervals,
@@ -80,6 +80,11 @@
 #'  		\item  the additive genetic variance for the trait with 95\% confidence intervals, and
 #'  		\item  the coefficient of additive genetic variance for the trait with 95\% confidence intervals
 #'  }
+#'
+#' @ references
+#'
+#' @ examples
+#'
 #' @export
 
 

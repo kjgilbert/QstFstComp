@@ -9,7 +9,7 @@ This is the analysis that we introduced in [Gilbert and Whitlock 2014](DOI goes 
 
 The package can be installed using [devtools](https://github.com/hadley/devtools), which itself can be installed from CRAN with
 
-```r
+```
 install.packages("devtools")
 ```
 
@@ -18,11 +18,12 @@ Once devtools is installed, run
 ```
 library(devtools)
 install_github("kjgilbert/QstFstComp")
+library(QstFstComp)
 ```
 and the package will be installed.
 <!-- or can alternatively be installed with devtools::install github("kjgilbert/QstFstComp") where there should be an underscore between "install" and "github"-->
 
-There is really only one function to be used from the package: `QstFstComp`.  See the help page `?QstFstComp` for more information once installed and loaded.
+There is only one function to run the analysis from the package: `QstFstComp`.  See the help page `?QstFstComp` for more information once installed and loaded.
 
 
 ## Documentation
@@ -30,7 +31,7 @@ The procedure can be completed in three steps.
 
 (1) Load the file containing information about the genetic marker frequencies to an object called  “MarkerInfo”
 
-```{r}
+```
 MarkerInfo <- read.csv(“/Your_FST_FileName.csv”) 
 ```
 
@@ -38,7 +39,7 @@ Replace the text in quotes with the directory path for your *F<sub>ST</sub>* fil
 
 (2) Load information about the breeding experiment and the trait to a data frame called “TraitInfo"
 
-```{r}
+```
 TraitInfo <- read.csv(“/Your_QST_FileName.csv”) 
 ```
 
@@ -46,7 +47,7 @@ Replace the text in quotes with the directory path for your *Q<sub>ST</sub>* fil
 
 (3) Run the function “QstFstComp” using these two data objects: 
 
-```{r}
+```
 QstFstComp(fst.dat = MarkerInfo, qst.dat = TraitInfo, numpops = XXX, breeding.design = "half.sib.dam", nsim = 10000)
 ```
 
@@ -58,7 +59,7 @@ Add a parameter `output = “full”` to have the function produce a longer list
 Data are expected to be in a .csv format, with the first line giving column names.
 
 *F<sub>ST</sub>* is calculated in two different ways, and the user must choose which method to use. The default is the [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) method (`AFLP = FALSE`), as first implemented in [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055). If using this method, the genetic data (fst.dat) must be a data frame with the first column indicating population of origin and the following columns representing genotypes at loci (as in hierfstat package). See the following for further information: **want to create own test data from simulations and put here instead**
-```{r}
+```
 install.packages("hierfstat")
 library(hierfstat)
 data(gtrunchier)

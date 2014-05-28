@@ -6,7 +6,7 @@ An R function to compare the *Q<sub>ST</sub>* of a single phenotypic trait to th
 
 [Gilbert and Whitlock in prep.](DOI goes here or url) describes the use of these procedures and their derivation. If you use this method, please cite:
 
-Gilbert KJ and MC Whitlock (*In prep.*) *Q<sub>ST</sub>* *F<sub>ST</sub>* comparisons with unbalanced half-sib designs.
+&nbsp;&nbsp; Gilbert KJ and MC Whitlock (*In prep.*) *Q<sub>ST</sub>* *F<sub>ST</sub>* comparisons with unbalanced half-sib designs.
 
 The method (and this code) is based on [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055) which may also be cited.
 

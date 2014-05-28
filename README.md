@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/kjgilbert/QstFstComp.png?branch=master)](https://travis-ci.org/kjgilbert/QstFstComp)
 
-An R function to compare the *Q<sub>ST</sub>* of a single phenotypic trait to the mean *F<sub>ST</sub>* of series of marker loci. \pkg{QstFstComp} calculates the distribution of *Q<sub>ST</sub>* – *F<sub>ST</sub>* under a model assuming neutrality of both the phenotypic trait and the genetic markers from which *F<sub>ST</sub>* is estimated.
+An R function to compare the *Q<sub>ST</sub>* of a single phenotypic trait to the mean *F<sub>ST</sub>* of series of marker loci. `QstFstComp` calculates the distribution of *Q<sub>ST</sub>* – *F<sub>ST</sub>* under a model assuming neutrality of both the phenotypic trait and the genetic markers from which *F<sub>ST</sub>* is estimated.
 
 [Gilbert and Whitlock in prep.](DOI goes here or url) describes the use of these procedures and their derivation. If you use this method, please cite:
 
-\indent Gilbert KJ and MC Whitlock (*In prep.*) *Q<sub>ST</sub>* *F<sub>ST</sub>* comparisons with unbalanced half-sib designs.
+Gilbert KJ and MC Whitlock (*In prep.*) *Q<sub>ST</sub>* *F<sub>ST</sub>* comparisons with unbalanced half-sib designs.
 
 The method (and this code) is based on [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055) which may also be cited.
 

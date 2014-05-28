@@ -5,7 +5,9 @@
 An R function to compare the *Q<sub>ST</sub>* of a single phenotypic trait to the mean *F<sub>ST</sub>* of series of marker loci. It calculates the distribution of *Q<sub>ST</sub>* – *F<sub>ST</sub>* under a model assuming neutrality of both the phenotypic trait and the genetic markers from which *F<sub>ST</sub>* is estimated.
 
 This is the analysis that we introduced in [Gilbert and Whitlock in prep](DOI goes here or url). If you use this procedure, please cite this paper 
+
 Gilbert KJ and MC Whitlock (*In prep.*) *Q<sub>ST</sub>* *F<sub>ST</sub>* comparisons with unbalanced half-sib designs.
+
 which describes the use of these procedures and their derivation. The method (and this code) is based on [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055) which may also be cited.
 
 

@@ -37,9 +37,22 @@ The procedure requires two input data files described in the following sections 
 #### Step 1: *F<sub>ST</sub>* INPUT FILE
 Data from genetic markers are expected to be in a .csv format, with the first line giving column names.
 
-*F<sub>ST</sub>* is calculated in two different ways, and the user must choose which method to use. The default is the [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) method (`AFLP = FALSE`), as first implemented in [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055). If using this method, the genetic data (fst.dat) must be a data frame where each row is an individual and the first column indicates population of origin and the following columns represent genotypes at loci (as in hierfstat package). See the the example data files: `data(gtrunchier)` for multiallelic loci or `data(BiAllelic) # Currently in the process of being implemented` for biallelic loci.
+*F<sub>ST</sub>* is calculated in two different ways, and the user must choose which method to use. The default is the [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) method (`AFLP = FALSE`), as first implemented in [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055). If using this method, the genetic data (fst.dat) must be a data frame where each row is an individual and the first column indicates population of origin and the following columns represent genotypes at loci (as in hierfstat package). 
 
-If the genetic marker data are from AFLP markers, the user must specify `AFLP = TRUE` as an input parameter, and the input format for data must be a .csv file with populations in columns and loci in rows. The entries of this file should be ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values as calculated in [Lynch and Milligan (1994)](http://www.indiana.edu/~lynchlab/PDF/Lynch63.pdf). The first row should be a header with population identifiers, and the first column should be locus identifiers followed by columns with the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values for each locus. To the right of these columns, add another set of columns with the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) variances for each locus, in the same population order as the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values. A table of such ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values and ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) variances can be obtained from the program [AFLP-SURV](http://www.ulb.ac.be/sciences/lagev/aflp-surv.html), by Xavier Vekemans. See the example data file `data(AFLP_Data) # Currently in the process of being implemented` as an example.
+See the the example data files: 
+```
+data(gtrunchier)
+gtrunchier[,-1]
+``` 
+for multiallelic loci or 
+```
+data(BiAllelic) # Currently in the process of being implemented
+```
+for biallelic loci.
+
+If the genetic marker data are from AFLP markers, the user must specify `AFLP = TRUE` as an input parameter, and the input format for data must be a .csv file with populations in columns and loci in rows. The entries of this file should be ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values as calculated in [Lynch and Milligan (1994)](http://www.indiana.edu/~lynchlab/PDF/Lynch63.pdf). The first row should be a header with population identifiers, and the first column should be locus identifiers followed by columns with the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values for each locus. To the right of these columns, add another set of columns with the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) variances for each locus, in the same population order as the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values. A table of such ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values and ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) variances can be obtained from the program [AFLP-SURV](http://www.ulb.ac.be/sciences/lagev/aflp-surv.html), by Xavier Vekemans. 
+
+See `data(AFLP_Data) # Currently in the process of being implemented` as an example.
 
 #### Step 2: *Q<sub>ST</sub>* INPUT FILE
 
@@ -49,6 +62,7 @@ For the half-sib dam model (`breeding.design = "half.sib.dam"`), there must be 3
 - column 1 identifies the population of origin. 	Each population should have a unique name or number.
 - column 2 identifies the dam (mother) of the offspring. Each dam should have a unique name or number (i.e., a dam from one population should never have the same name as a dam from another population).
 - column 3 is the numerical value of the trait in question for the individual identified.
+
 See the example data file `data(HalfSibDam_Unbalanced) # Currently in the process of being implemented`.
 
 For the half-sib sire model (`breeding.design = "half.sib.sire"`), there must be 4 columns of data where each row after the header contains the data for one individual: its identifiers for the population, sire, and dam it originated from, and the value of its trait:
@@ -56,6 +70,7 @@ For the half-sib sire model (`breeding.design = "half.sib.sire"`), there must be
 - column 2 identifies the sire (father) of the offspring. Each sire should have a unique name.
 - column 3 identifies the dam (mother) of the offspring. Each dam should have a unique name.
 - column 4 is the numerical value of the trait in question for the individual identified.
+
 See the example data file `data(HalfSibSire_Balanced) # Currently in the process of being implemented`.
 
 

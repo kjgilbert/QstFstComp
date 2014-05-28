@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/kjgilbert/QstFstComp.png?branch=master)](https://travis-ci.org/kjgilbert/QstFstComp)
 
-An R function to compare the *Q<sub>ST</sub>* of a single phenotypic trait to the mean *F<sub>ST</sub>* of series of marker loci. `QstFstComp` calculates the distribution of *Q<sub>ST</sub>* – *F<sub>ST</sub>* under a model assuming neutrality of both the phenotypic trait and the genetic markers from which *F<sub>ST</sub>* is estimated.
+An R function to compare the *Q<sub>ST</sub>* of a single phenotypic trait to the mean *F<sub>ST</sub>* of series of marker loci. \pkg{QstFstComp} calculates the distribution of *Q<sub>ST</sub>* – *F<sub>ST</sub>* under a model assuming neutrality of both the phenotypic trait and the genetic markers from which *F<sub>ST</sub>* is estimated.
 
-[Gilbert and Whitlock in prep](DOI goes here or url) describes the use of these procedures and their derivation. If you use this method, please cite:
+[Gilbert and Whitlock in prep.](DOI goes here or url) describes the use of these procedures and their derivation. If you use this method, please cite:
 
-Gilbert KJ and MC Whitlock (*In prep.*) *Q<sub>ST</sub>* *F<sub>ST</sub>* comparisons with unbalanced half-sib designs.
+\indent Gilbert KJ and MC Whitlock (*In prep.*) *Q<sub>ST</sub>* *F<sub>ST</sub>* comparisons with unbalanced half-sib designs.
 
 The method (and this code) is based on [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055) which may also be cited.
 
@@ -63,7 +63,7 @@ For the half-sib dam model (`breeding.design = "half.sib.dam"`), there must be 3
 - column 2 identifies the dam (mother) of the offspring. Each dam should have a unique name or number (i.e., a dam from one population should never have the same name as a dam from another population).
 - column 3 is the numerical value of the trait in question for the individual identified.
 
-See the example data file 
+See the example data file:
 ```
 data(HalfSibDam_Unbalanced) # Currently in the process of being implemented
 ```

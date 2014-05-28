@@ -63,7 +63,10 @@ For the half-sib dam model (`breeding.design = "half.sib.dam"`), there must be 3
 - column 2 identifies the dam (mother) of the offspring. Each dam should have a unique name or number (i.e., a dam from one population should never have the same name as a dam from another population).
 - column 3 is the numerical value of the trait in question for the individual identified.
 
-See the example data file `data(HalfSibDam_Unbalanced) # Currently in the process of being implemented`.
+See the example data file 
+```
+data(HalfSibDam_Unbalanced) # Currently in the process of being implemented
+```
 
 For the half-sib sire model (`breeding.design = "half.sib.sire"`), there must be 4 columns of data where each row after the header contains the data for one individual: its identifiers for the population, sire, and dam it originated from, and the value of its trait:
 - column 1 identifies the population of origin. Each population should have a unique name or number.
@@ -71,7 +74,10 @@ For the half-sib sire model (`breeding.design = "half.sib.sire"`), there must be
 - column 3 identifies the dam (mother) of the offspring. Each dam should have a unique name.
 - column 4 is the numerical value of the trait in question for the individual identified.
 
-See the example data file `data(HalfSibSire_Balanced) # Currently in the process of being implemented`.
+See the example data file:
+```
+data(HalfSibSire_Balanced) # Currently in the process of being implemented
+```
 
 
 #### Step 3: Running the analysis

@@ -82,16 +82,6 @@
 #'
 #' @references Whitlock MC and F Guillaume (2009) \href{http://www.genetics.org/content/183/3/1055}{Testing for spatially divergent selection: Comparing \emph{Qst} to \emph{Fst}.} \emph{Genetics}, 183:1055-1063.
 #'
-#' @examples
-#' ## Analyze a set of data using AFLPs under the half-sib dam model:
-#' fst.dat <- read.csv("")
-#' qst.dat <- read.csv("")
-#' answer <- QstFstComp(fst.dat, qst.dat, numpops=5, nsim=10000, AFLP=TRUE, breeding.design="half.sib.dam", output="full")
-#'
-#' ## Analyze a set of data using microsatellite data under the half-sib sire model:
-#' fst.dat <- read.csv("")
-#' qst.dat <- read.csv("")
-#' answer <- QstFstComp(fst.dat, qst.dat, numpops=15, nsim=1000, breeding.design="half.sib.sire", output="concise")
 #'
 #' @export
 

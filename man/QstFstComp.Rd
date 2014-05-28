@@ -72,17 +72,6 @@ Returns the simulated estimates of Qst - Fst under neutrality following the proc
 described in Gilbert and Whitlock (2014) and Whitlock & Guillaume (2009). Also returns
 the simulated estimates of Fst and Qst used to compute the null distribution.
 }
-\examples{
-## Analyze a set of data using AFLPs under the half-sib dam model:
-fst.dat <- read.csv("")
-qst.dat <- read.csv("")
-answer <- QstFstComp(fst.dat, qst.dat, numpops=5, nsim=10000, AFLP=TRUE, breeding.design="half.sib.dam", output="full")
-
-## Analyze a set of data using microsatellite data under the half-sib sire model:
-fst.dat <- read.csv("")
-qst.dat <- read.csv("")
-answer <- QstFstComp(fst.dat, qst.dat, numpops=15, nsim=1000, breeding.design="half.sib.sire", output="concise")
-}
 \author{
 Kimberly J Gilbert & Michael C Whitlock
 }

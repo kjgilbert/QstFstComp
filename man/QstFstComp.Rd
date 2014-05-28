@@ -84,11 +84,11 @@ qst.dat <- read.csv("")
 answer <- QstFstComp(fst.dat, qst.dat, numpops=15, nsim=1000, breeding.design="half.sib.sire", output="concise")
 }
 \author{
-Kimberly J Gilbert \& Michael C Whitlock
+Kimberly J Gilbert & Michael C Whitlock
 }
 \references{
 Gilbert KJ and MC Whitlock (\emph{In prep.}) \emph{Qst} \emph{Fst} comparisons with half-sib designs.
 
-\href{http://www.genetics.org/content/183/3/1055}{Whitlock MC and F Guillaume (2009) Testing for spatially divergent selection: Comparing \emph{Qst} to \emph{Fst}. \emph{Genetics}, 183:1055-1063.}
+Whitlock MC and F Guillaume (2009) \href{http://www.genetics.org/content/183/3/1055}{Testing for spatially divergent selection: Comparing \emph{Qst} to \emph{Fst}.} \emph{Genetics}, 183:1055-1063.
 }
 

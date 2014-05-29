@@ -82,6 +82,16 @@
 #'
 #' @references Whitlock MC and F Guillaume (2009) \href{http://www.genetics.org/content/183/3/1055}{Testing for spatially divergent selection: Comparing \emph{Qst} to \emph{Fst}.} \emph{Genetics}, 183:1055-1063.
 #'
+#' @examples
+#' ## using balanced half-sib sire trait data and biallelic marker data 
+#' data(sire.balanced.qst)
+#' check <- c(1,2,3,4)
+#'
+#'
+#' data(dam.unbalanced.qst)
+#' data(biallelic.fst)
+#' data(aflp.fst)
+#' 
 #'
 #' @export
 

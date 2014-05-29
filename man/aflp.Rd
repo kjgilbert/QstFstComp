@@ -2,7 +2,7 @@
 \docType{data}
 \name{aflp}
 \alias{aflp}
-\title{AFLP dataset}
+\title{AFLP marker dataset}
 \format{A data frame with 100 observations on the following 31 variables.}
 \description{
 An example dataset created from simulations of 15 neutral populations under
@@ -10,7 +10,7 @@ an island model. Individuals are diploid with genotypes at 100 dominant, AFLP lo
 }
 \details{
 \describe{
- \item{pop}{phylogeny of Galapagos finches}
+ \item{pop}{population of origin}
  \item{q_hat}{columns 2 through 16 are the q_hat values for each locus in each population}
 	\item{q_var}{columns 17 through 31 are the q_hat variances for each locus in each population}
 }

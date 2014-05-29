@@ -1053,13 +1053,13 @@ fst.sample.aflp <- function(obs, qvar, nloci) {
 
 
 NULL
-#' AFLP dataset
+#' AFLP marker dataset
 #'
 #' An example dataset created from simulations of 15 neutral populations under 
 #' an island model. Individuals are diploid with genotypes at 100 dominant, AFLP loci.
 #'
 #' \describe{
-#'  \item{pop}{phylogeny of Galapagos finches}
+#'  \item{pop}{population of origin}
 #'  \item{q_hat}{columns 2 through 16 are the q_hat values for each locus in each population}
 #'	\item{q_var}{columns 17 through 31 are the q_hat variances for each locus in each population}
 #' }
@@ -1069,5 +1069,59 @@ NULL
 #' @format A data frame with 100 observations on the following 31 variables.
 #' @name aflp
 
+NULL
+#' biallelic marker dataset
+#'
+#' An example dataset created from simulations of 15 neutral populations under 
+#' an island model. Individuals are diploid with genotypes at 25 biallelic loci.
+#'
+#' \describe{
+#'  \item{pop}{population of origin}
+#'  \item{loc}{loc1 through loc25 are the 25 biallelic loci for which each diploid individual is genotyped}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @format A data frame with 375 observations on the following 26 variables.
+#' @name biallelic
+
+NULL
+#' half-sib dam trait dataset
+#'
+#' An example dataset of a neutral trait created from simulations of 15 
+#' populations under an island model. Offspring per dam are unbalanced across 
+#' the breeding design with 6 dams per population, an average of 10 offspring per 
+#' dam, and 900 individuals total.
+#'
+#' \describe{
+#'  \item{pop}{a column of population identifiers}
+#'  \item{dam}{a column of unique dam identifiers}
+#'  \item{trait}{column of trait values per individual}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @format A data frame with 900 observations on the following 3 variables.
+#' @name hsdam
+
+NULL
+#' half-sib sire trait dataset
+#'
+#' An example dataset of a neutral trait created from simulations of 15 populations 
+#' under an island model. 900 individuals total come from an average of 4 dams 
+#' per sire and an average of 12 sires per population for an overall average of 60 
+#' individuals per population.
+#'
+#' \describe{
+#'  \item{pop}{a column of population identifiers}
+#'  \item{sire}{a column of unique sire identifiers}
+#'  \item{dam}{a column of unique dam identifiers}
+#'  \item{trait}{column of trait values per individual}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @format A data frame with 900 observations on the following 4 variables.
+#' @name hssire
 
 NULL

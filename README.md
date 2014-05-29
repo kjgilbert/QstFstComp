@@ -52,7 +52,7 @@ for biallelic loci.
 
 If the genetic marker data are from AFLP markers, the user must specify `AFLP = TRUE` as an input parameter, and the input format for data must be a .csv file with populations in columns and loci in rows. The entries of this file should be ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values as calculated in [Lynch and Milligan (1994)](http://www.indiana.edu/~lynchlab/PDF/Lynch63.pdf). The first row should be a header with population identifiers, and the first column should be locus identifiers followed by columns with the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values for each locus. To the right of these columns, add another set of columns with the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) variances for each locus, in the same population order as the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values. A table of such ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values and ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) variances can be obtained from the program [AFLP-SURV](http://www.ulb.ac.be/sciences/lagev/aflp-surv.html), by Xavier Vekemans. 
 
-See `data(AFLP_Data) # Currently in the process of being implemented` as an example.
+See `data(aflp)` as an example.
 
 #### Step 2: *Q<sub>ST</sub>* INPUT FILE
 

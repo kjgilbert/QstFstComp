@@ -77,19 +77,23 @@
 #'
 #' @author Kimberly J Gilbert & Michael C Whitlock
 #'
+#' @import hierfstat
 #'
 #' @references Gilbert KJ and MC Whitlock (\emph{In prep.}) \emph{Qst} \emph{Fst} comparisons with half-sib designs.
 #'
 #' @references Whitlock MC and F Guillaume (2009) \href{http://www.genetics.org/content/183/3/1055}{Testing for spatially divergent selection: Comparing \emph{Qst} to \emph{Fst}.} \emph{Genetics}, 183:1055-1063.
 #'
+#'
+#'
+#'
 #' @examples
 #' ## using balanced half-sib sire trait data and biallelic marker data 
-#' data(sire.unbalanced)
+#' ##data(sire.unbalanced)
 #' check <- c(1,2,3,4)
 #'
 #'
-#' data(dam.unbalanced)
-#' data(biallelic)
+#' ##data(dam.unbalanced)
+#' ##data(biallelic)
 #' data(aflp)
 #' 
 #' 
@@ -97,7 +101,6 @@
 #' 
 #' 
 #' 
-
 #' @export
 
 
@@ -1049,4 +1052,20 @@ fst.sample.aflp <- function(obs, qvar, nloci) {
 ###########################################################################
 
 
+NULL
+#' AFLP dataset
+#'
+#' An example dataset including a phylogeny of 13 Galapagos finches with
+#' trait data matched to the phylogeny.
+#'
+#' \describe{
+#'  \item{pop}{phylogeny of Galapagos finches}
+#'  \item{data}{measured traits for each species in the phylogeny}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @format a list with two elements
+#' @name aflp A data frame with 100 observations on the following 31 variables.
 
+NULL

@@ -41,7 +41,7 @@ Data from genetic markers are expected to be in a .csv format, with the first li
 
 See the the example data files: 
 ```
-data(gtrunchier)
+data(gtrunchier) # example dataset from heirfstat
 gtrunchier[,-1]
 ``` 
 for multiallelic loci or 

@@ -74,13 +74,13 @@ the simulated estimates of Fst and Qst used to compute the null distribution.
 }
 \examples{
 ## using balanced half-sib sire trait data and biallelic marker data
-##data(sire.unbalanced)
-check <- c(1,2,3,4)
+data(hssire) # trait data
+data(biallelic) # marker data
+QstFstComp(biallelic, hssire, numpops=15, nsim=100, breeding.design="half.sib.sire", output="full")
 
-
-##data(dam.unbalanced)
-##data(biallelic)
+data(hsdam)
 data(aflp)
+QstFstComp(aflp, hsdam, numpops=15, nsim=100, AFLP=TRUE, breeding.design="half.sib.dam", output="concise")
 }
 \author{
 Kimberly J Gilbert & Michael C Whitlock

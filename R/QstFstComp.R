@@ -85,19 +85,16 @@
 #'
 #'
 #'
-#'
 #' @examples
+#'
 #' ## using balanced half-sib sire trait data and biallelic marker data 
-#' 
-#' data(hssire)
+#' data(hssire) # trait data
+#' data(biallelic) # marker data
+#' QstFstComp(biallelic, hssire, numpops=15, nsim=100, breeding.design="half.sib.sire", output="full")
 #' 
 #' data(hsdam)
-#' data(biallelic)
 #' data(aflp)
-#' 
-#' 
-#' 
-#' 
+#' QstFstComp(aflp, hsdam, numpops=15, nsim=100, AFLP=TRUE, breeding.design="half.sib.dam", output="concise")
 #' 
 #' 
 #' @export

@@ -92,7 +92,12 @@
 #' data(biallelic.fst)
 #' data(aflp.fst)
 #' 
-#'
+#' 
+#' 
+#' 
+#' 
+#' 
+
 #' @export
 
 

@@ -1060,12 +1060,14 @@ NULL
 #'
 #' \describe{
 #'  \item{pop}{phylogeny of Galapagos finches}
-#'  \item{data}{measured traits for each species in the phylogeny}
+#'  \item{q_hat}{columns 2 through 16 are the q_hat values for each locus in each population}
+#'	\item{q_var}{columns 17 through 31 are the q_hat variances for each locus in each population}
 #' }
 #'
 #' @docType data
 #' @keywords datasets
-#' @format a list with two elements
-#' @name aflp A data frame with 100 observations on the following 31 variables.
+#' @format A data frame with 100 observations on the following 31 variables.
+#' @name aflp AFLP marker dataset
+
 
 NULL

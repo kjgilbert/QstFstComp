@@ -1055,8 +1055,8 @@ fst.sample.aflp <- function(obs, qvar, nloci) {
 NULL
 #' AFLP dataset
 #'
-#' An example dataset including a phylogeny of 13 Galapagos finches with
-#' trait data matched to the phylogeny.
+#' An example dataset created from simulations of 15 neutral populations under 
+#' an island model. Individuals are diploid with genotypes at 100 dominant, AFLP loci.
 #'
 #' \describe{
 #'  \item{pop}{phylogeny of Galapagos finches}
@@ -1067,7 +1067,7 @@ NULL
 #' @docType data
 #' @keywords datasets
 #' @format A data frame with 100 observations on the following 31 variables.
-#' @name aflp AFLP marker dataset
+#' @name aflp
 
 
 NULL

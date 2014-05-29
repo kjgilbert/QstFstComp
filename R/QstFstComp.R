@@ -84,13 +84,13 @@
 #'
 #' @examples
 #' ## using balanced half-sib sire trait data and biallelic marker data 
-#' data(sire.balanced.qst)
+#' data(sire.unbalanced)
 #' check <- c(1,2,3,4)
 #'
 #'
-#' data(dam.unbalanced.qst)
-#' data(biallelic.fst)
-#' data(aflp.fst)
+#' data(dam.unbalanced)
+#' data(biallelic)
+#' data(aflp)
 #' 
 #' 
 #' 

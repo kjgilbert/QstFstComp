@@ -46,7 +46,7 @@ gtrunchier[,-1]
 ``` 
 for multiallelic loci or 
 ```
-data(BiAllelic) # Currently in the process of being implemented
+data(biallelic)
 ```
 for biallelic loci.
 
@@ -65,7 +65,7 @@ For the half-sib dam model (`breeding.design = "half.sib.dam"`), there must be 3
 
 See the example data file:
 ```
-data(HalfSibDam_Unbalanced) # Currently in the process of being implemented
+data(hsdam)
 ```
 
 For the half-sib sire model (`breeding.design = "half.sib.sire"`), there must be 4 columns of data where each row after the header contains the data for one individual: its identifiers for the population, sire, and dam it originated from, and the value of its trait:
@@ -76,7 +76,7 @@ For the half-sib sire model (`breeding.design = "half.sib.sire"`), there must be
 
 See the example data file:
 ```
-data(HalfSibSire_Balanced) # Currently in the process of being implemented
+data(hssire)
 ```
 
 

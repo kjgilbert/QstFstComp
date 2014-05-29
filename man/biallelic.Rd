@@ -1,11 +1,11 @@
-\name{biallelic}
+\name{biallelic.fst}
 \alias{biallelic}
 \docType{data}
 \title{
 Biallelic marker dataset
 }
 \description{
-An example dataset created from simulations of 15 neutral populations under an island model. Individuals are diploid with 25 biallelic loci.
+An example dataset created from simulations of 15 neutral populations under an island model. Individuals are diploid with genotypes at 25 biallelic loci.
 }
 \usage{data(biallelic)}
 \format{
@@ -44,12 +44,6 @@ An example dataset created from simulations of 15 neutral populations under an i
 		\item{pop}{population of origin}
 		\item{loc}{loc1 through loc25 are the 25 biallelic loci for which each diploid individual is genotyped}
 	}
-}
-\source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
-}
-\references{
-%%  ~~ possibly secondary sources and usages ~~
 }
 \examples{
 data(biallelic)

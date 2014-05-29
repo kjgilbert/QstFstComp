@@ -1,11 +1,11 @@
-\name{aflp}
+\name{aflp.fst}
 \alias{aflp}
 \docType{data}
 \title{
-%%   ~~ data name/kind ... ~~
+AFLP marker dataset
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of the dataset. ~~
+An example dataset created from simulations of 15 neutral populations under an island model. Individuals are diploid with genotypes at 100 dominant, AFLP loci.
 }
 \usage{data(aflp)}
 \format{
@@ -45,13 +45,11 @@
   }
 }
 \details{
-%%  ~~ If necessary, more details than the __description__ above ~~
-}
-\source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
-}
-\references{
-%%  ~~ possibly secondary sources and usages ~~
+	\describe{
+		\item{locus}{each row is a locus}
+		\item{q_hat}{columns 2 through 16 are the q_hat values for each locus in each population}
+		\item{q_var}{columns 17 through 31 are the q_hat variances for each locus in each population}
+	}
 }
 \examples{
 data(aflp)

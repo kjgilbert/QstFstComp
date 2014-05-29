@@ -1,11 +1,11 @@
-\name{dam.unbalanced}
+\name{dam.unbalanced.qst}
 \alias{dam.unbalanced}
 \docType{data}
 \title{
-%%   ~~ data name/kind ... ~~
+Trait dataset for unbalanced half-sib dam model
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of the dataset. ~~
+An example dataset of a neutral trait created from simulations of 15 populations under an island model. Offspring per dam are unbalanced across the breeding design with 6 dams per population, an average of 10 offspring per dam, and 900 individuals total.
 }
 \usage{data(dam.unbalanced)}
 \format{
@@ -17,13 +17,11 @@
   }
 }
 \details{
-%%  ~~ If necessary, more details than the __description__ above ~~
-}
-\source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
-}
-\references{
-%%  ~~ possibly secondary sources and usages ~~
+  \describe{
+    \item{pop}{a column of population identifiers}
+    \item{dam}{a column of unique dam identifiers}
+    \item{trait}{column of trait values per individual}
+  }
 }
 \examples{
 data(dam.unbalanced)

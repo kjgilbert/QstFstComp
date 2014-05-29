@@ -72,6 +72,16 @@ Returns the simulated estimates of Qst - Fst under neutrality following the proc
 described in Gilbert and Whitlock (2014) and Whitlock & Guillaume (2009). Also returns
 the simulated estimates of Fst and Qst used to compute the null distribution.
 }
+\examples{
+## using balanced half-sib sire trait data and biallelic marker data
+data(sire.balanced.qst)
+check <- c(1,2,3,4)
+
+
+data(dam.unbalanced.qst)
+data(biallelic.fst)
+data(aflp.fst)
+}
 \author{
 Kimberly J Gilbert & Michael C Whitlock
 }

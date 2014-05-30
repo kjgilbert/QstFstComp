@@ -42,7 +42,7 @@ Data from genetic markers are expected to be in a .csv format, with the first li
 See the the example data file for multiallelic loci: 
 ```
 data(gtrunchier) # example dataset from hierfstat 
-gtrunchier[,-1] # contains one column extraneous to this analysis
+gtrunchier[,-1]  # contains one column extraneous to this analysis
 ``` 
 or for biallelic loci:
 ```

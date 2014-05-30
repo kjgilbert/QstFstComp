@@ -39,16 +39,15 @@ Data from genetic markers are expected to be in a .csv format, with the first li
 
 *F<sub>ST</sub>* is calculated in two different ways, and the user must choose which method to use. The default is the [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) method (`AFLP = FALSE`), as first implemented in [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055). If using this method, the genetic data (fst.dat) must be a data frame where each row is an individual and the first column indicates population of origin and the following columns represent genotypes at loci (as in hierfstat package). 
 
-See the the example data files: 
+See the the example data files for multiallelic loci: 
 ```
 data(gtrunchier) # example dataset from hierfstat, which has one column extraneous to this analysis
 gtrunchier[,-1]
 ``` 
-for multiallelic loci or 
+or for biallelic loci:
 ```
 data(biallelic)
 ```
-for biallelic loci.
 
 If the genetic marker data are from AFLP markers, the user must specify `AFLP = TRUE` as an input parameter, and the input format for data must be a .csv file with populations in columns and loci in rows. The entries of this file should be ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values as calculated in [Lynch and Milligan (1994)](http://www.indiana.edu/~lynchlab/PDF/Lynch63.pdf). The first row should be a header with population identifiers, and the first column should be locus identifiers followed by columns with the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values for each locus. To the right of these columns, add another set of columns with the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) variances for each locus, in the same population order as the ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values. A table of such ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) values and ![q_hat](https://github.com/kjgilbert/QstFstComp/raw/master/q_hat.png) variances can be obtained from the program [AFLP-SURV](http://www.ulb.ac.be/sciences/lagev/aflp-surv.html), by Xavier Vekemans. 
 

@@ -39,10 +39,10 @@ Data from genetic markers are expected to be in a .csv format, with the first li
 
 *F<sub>ST</sub>* is calculated in two different ways, and the user must choose which method to use. The default is the [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) method (`AFLP = FALSE`), as first implemented in [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055). If using this method, the genetic data (fst.dat) must be a data frame where each row is an individual and the first column indicates population of origin and the following columns represent genotypes at loci (as in hierfstat package). 
 
-See the the example data files for multiallelic loci: 
+See the the example data file for multiallelic loci: 
 ```
-data(gtrunchier) # example dataset from hierfstat, which has one column extraneous to this analysis
-gtrunchier[,-1]
+data(gtrunchier) # example dataset from hierfstat 
+gtrunchier[,-1] # contains one column extraneous to this analysis
 ``` 
 or for biallelic loci:
 ```

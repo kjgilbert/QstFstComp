@@ -2,7 +2,7 @@
 \docType{data}
 \name{hsdam}
 \alias{hsdam}
-\title{half-sib dam trait dataset}
+\title{Half-sib dam trait dataset}
 \format{A data frame with 900 observations on the following 3 variables.}
 \description{
 An example dataset of a neutral trait created from simulations of 15

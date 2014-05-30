@@ -2,7 +2,7 @@
 \docType{data}
 \name{hssire}
 \alias{hssire}
-\title{half-sib sire trait dataset}
+\title{Half-sib sire trait dataset}
 \format{A data frame with 900 observations on the following 4 variables.}
 \description{
 An example dataset of a neutral trait created from simulations of 15 populations

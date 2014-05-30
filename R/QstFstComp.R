@@ -1066,7 +1066,7 @@ NULL
 #' @name aflp
 
 NULL
-#' biallelic marker dataset
+#' Biallelic marker dataset
 #'
 #' An example dataset created from simulations of 15 neutral populations under 
 #' an island model. Individuals are diploid with genotypes at 25 biallelic loci.
@@ -1082,7 +1082,7 @@ NULL
 #' @name biallelic
 
 NULL
-#' half-sib dam trait dataset
+#' Half-sib dam trait dataset
 #'
 #' An example dataset of a neutral trait created from simulations of 15 
 #' populations under an island model. Offspring per dam are unbalanced across 
@@ -1101,7 +1101,7 @@ NULL
 #' @name hsdam
 
 NULL
-#' half-sib sire trait dataset
+#' Half-sib sire trait dataset
 #'
 #' An example dataset of a neutral trait created from simulations of 15 populations 
 #' under an island model. 900 individuals total come from an average of 4 dams 

@@ -2,7 +2,7 @@
 \docType{data}
 \name{biallelic}
 \alias{biallelic}
-\title{biallelic marker dataset}
+\title{Biallelic marker dataset}
 \format{A data frame with 375 observations on the following 26 variables.}
 \description{
 An example dataset created from simulations of 15 neutral populations under

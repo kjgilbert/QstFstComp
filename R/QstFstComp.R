@@ -51,6 +51,8 @@
 #'  		which works for either balanced or unbalanced sampling designs
 #'  }
 #'
+#'  @param dam.offspring.relatedness
+#'
 #'  @param output whether to output full or concise results, see details below
 #'
 #'  @return
@@ -102,7 +104,7 @@
 
 
 
-QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breeding.design, output="concise")
+QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breeding.design, dam.offspring.relatedness=0.25, output="concise")
 {	
   if(missing(fst.dat)) stop("Genotypic data must be provided.")
   if(missing(qst.dat)) stop("Phenotypic data must be provided.")
@@ -123,7 +125,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
   		qst.MS <- MeanSq.unbalanced.dam(qst.dat)
   		qst.obs <- QSTfromDamModel(qst.MS$MSpops,qst.MS$MSdams,qst.MS$MSwithin,qst.MS$n0prime,qst.MS$n0,qst.MS$nb0)
    		mean.trait.value <- mean(qst.dat[,3], na.rm=TRUE) # this takes the mean of all trait values across all ind.s, no bootstrapping  
-		Va <- 4*(qst.MS$MSdams-qst.MS$MSwithin)/qst.MS$n0
+		Va <- 1/dam.offspring.relatedness*(qst.MS$MSdams-qst.MS$MSwithin)/qst.MS$n0
 		if(Va < 0){Va <- 0}	# if Va includes negative values, the distribution is truncated to zero
       	CVa <- sqrt(Va)/mean.trait.value * 100
   	}
@@ -207,7 +209,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
   	if(breeding.design=="half.sib.sire"){ # this full output has the ANOVA table for the half-sib sire breeding design
   		return(list(
 		QminusF	<- c(
-				"Calculated Qst-Fst" =Q.obsMinusF.obs, 
+				"Calculated Qst-Fst" = Q.obsMinusF.obs, 
 				"Lower Bound crit. value" = quantile(sim.est,0.025,na.rm=TRUE), 
 				"Upper bound crit. value" = quantile(sim.est,0.975,na.rm=TRUE)),
 	    QminusF.p.values <- c(  
@@ -552,7 +554,7 @@ QSTfromSireModel <- function(MSpops, MSsires, MSdams, MSwithin, n0primeprime, n0
   sigma2sires <- (MSsires - MSwithin - n0prime*sigma2dams)/nc0
   sigma2pops <- (MSpops - MSwithin - n0primeprime*sigma2dams - nc0prime*sigma2sires)/ncb0
   
-  Va <- 4*sigma2sires
+  Va <- 1/dam.offspring.relatedness*sigma2sires
   
   Qst <- sigma2pops/(sigma2pops+2*Va)
   
@@ -570,7 +572,7 @@ QSTfromSireModel <- function(MSpops, MSsires, MSdams, MSwithin, n0primeprime, n0
 QSTfromDamModel <- function(MSpops,MSdams,MSwithin,n0prime,n0,nb0){
   sigma2dams <- (MSdams-MSwithin)/n0
   sigma2pops <- (MSpops-sigma2dams*n0prime-MSwithin)/nb0
-  VA <- 4*sigma2dams
+  VA <- 1/dam.offspring.relatedness*sigma2dams
   
   Qst <- sigma2pops/(sigma2pops+2*VA)
   
@@ -592,7 +594,7 @@ qst.parboot.siremodel <- function(MSdflist, meanFst){
   MSdamsResample <- MSdflist$MSdams * rchisq(1,MSdflist$dfdam) / MSdflist$dfdam
   MSwithinResample <- MSdflist$MSwithin * rchisq(1,MSdflist$dfwithin) / MSdflist$dfwithin
  
-  VpopNeut <- 8*meanFst / (1-meanFst) * MSdflist$sigma2sires
+  VpopNeut <- 2/dam.offspring.relatedness*meanFst / (1-meanFst) * MSdflist$sigma2sires
   
   MSpopNeut <- MSdflist$MSwithin + MSdflist$n0primeprime * MSdflist$sigma2dams + MSdflist$nc0prime * MSdflist$sigma2sires + MSdflist$ncb0 * VpopNeut
  
@@ -615,7 +617,7 @@ qst.parboot.dammodel <- function(MSdflist, meanFst){
   MSdamsResample <- MSdflist$MSdams * rchisq(1,MSdflist$dfdam) / MSdflist$dfdam
   MSwithinResample <- MSdflist$MSwithin * rchisq(1,MSdflist$dfwithin) / MSdflist$dfwithin
  
-  VpopNeut <- 8*meanFst / (1-meanFst) * MSdflist$sigma2dams
+  VpopNeut <- 2/dam.offspring.relatedness*meanFst / (1-meanFst) * MSdflist$sigma2dams
   MSpopNeut <- MSdflist$MSwithin + MSdflist$n0prime * MSdflist$sigma2dams + MSdflist$nb0 * VpopNeut
  
   MSpopNeutResample <- MSpopNeut * rchisq(1,MSdflist$dfpops) / MSdflist$dfpops
@@ -648,7 +650,7 @@ qstVa.parbootForCI.siremodel <- function(MSdflist){
   sigma2damsResample <- (MSdamsResample-MSwithinResample)/MSdflist$n0
 
   sigma2siresResample <- (MSsiresResample - MSwithinResample - MSdflist$n0prime*sigma2damsResample)/MSdflist$nc0
-  sim.Va <- 4*sigma2siresResample
+  sim.Va <- 1/dam.offspring.relatedness*sigma2siresResample
   
   return(c(sim.qstForCI, sim.Va))
 }
@@ -671,7 +673,7 @@ qstVa.parbootForCI.dammodel <- function(MSdflist){
   MSpopResample <- MSdflist$MSpops * rchisq(1,MSdflist$dfpops) / MSdflist$dfpops
   
   sim.qstForCI <- QSTfromDamModel(MSpopResample,MSdamsResample,MSwithinResample,MSdflist$n0prime,MSdflist$n0,MSdflist$nb0)  
-  sim.Va <- 4*(MSdamsResample-MSwithinResample)/MSdflist$n0
+  sim.Va <- 1/dam.offspring.relatedness*(MSdamsResample-MSwithinResample)/MSdflist$n0
   
   return(c(sim.qstForCI, sim.Va))
 }

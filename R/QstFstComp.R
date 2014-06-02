@@ -62,16 +62,22 @@
 #'  Concise list returns (default)
 #'  \itemize{
 #'  \item 	the calculated difference between Qst and Fst with 95\% critical values,
-#'  \item 	one- and two- tailed p-values for this difference, and
+#'  \item 	one- and two- tailed p-values for this difference,
+#'  \item 	the Fst value estimated from the data with 95\% confidence intervals,
+#'  \item 	the Qst value estimated from the data with 95\% confidence intervals, and
 #'  \item 	the additive genetic variance for the trait with 95\% confidence intervals
 #'  }
 #'  Full list returns 
 #'  \itemize{
 #'  		\item  the calculated difference between Qst and Fst with 95\% critical values,
 #'  		\item  one- and two- tailed p-values for this difference,
-#'  		\item  the Fst as calculated from the genetic data provided, with 95\% confidence intervals,
+#'  		\item  a list of all Qst-Fst values for plotting the distribution of Qst-Fst,
+#'  		\item  the Fst value estimated from the data with 95\% confidence intervals,
 #'  		\item  the resampled Fst as calculated from bootstrapping across simulations, with standard deviation and 95\% confidence intervals,
+#'  		\item  a list of all resampled Fst values for plotting the distribution of Fst,
+#'  		\item  the Qst value estimated from the data with 95\% confidence intervals,
 #'  		\item  the resampled neutral Qst as calculated from bootstrapping across simulations, with standard deviation and 95\% critical values,
+#'  		\item  a list of all resampled Qst values for plotting the distribution of the neutral Qst,
 #'  		\item  the ANOVA table for the calculated means squared, n coefficients, and degrees of freedom,
 #'  		\item  the additive genetic variance for the trait with 95\% confidence intervals, and
 #'  		\item  the coefficient of additive genetic variance for the trait with 95\% confidence intervals
@@ -201,6 +207,12 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
     			"Lower one-tailed p value" = left.one.tailed.p, 
        			"Upper one-tailed p value" = right.one.tailed.p, 
     			"Two-tailed p value" = two.tailed.p),
+		Fst	<- c("Estimated Fst" = fst.obs, 
+				"Lower Bound CI" = quantile(fst.est,0.025,na.rm=TRUE), 
+				"Upper bound CI" = quantile(fst.est,0.975,na.rm=TRUE)),
+		Qst	<- c("Estimated Qst" = qst.obs, 
+				"Lower Bound CI" = quantile(qst.neut,0.025,na.rm=TRUE), 
+				"Upper bound CI" = quantile(qst.neut,0.975,na.rm=TRUE)),
     	Va  <- c("Va"=Va, 
     			"Lower bound CI" = quantile(Va.est,0.025,na.rm=TRUE), 
     			"Upper bound CI" = quantile(Va.est,0.975,na.rm=TRUE))
@@ -213,6 +225,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 				"Calculated Qst-Fst" = Q.obsMinusF.obs, 
 				"Lower Bound crit. value" = quantile(sim.est,0.025,na.rm=TRUE), 
 				"Upper bound crit. value" = quantile(sim.est,0.975,na.rm=TRUE)),
+		Distribution.QminusF <- sim.est,
 	    QminusF.p.values <- c(  
     			"Lower one-tailed p value" = left.one.tailed.p, 
        			"Upper one-tailed p value" = right.one.tailed.p, 
@@ -225,11 +238,16 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
     			"Fst std. dev." = sd(fst.est, na.rm=TRUE), 
     			"Fst 95% CI" = quantile(fst.est,c(0.025,0.975), na.rm=TRUE), 
     			"Fst 99% CI" = quantile(fst.est,c(0.005,0.995), na.rm=TRUE)),
+		Distribution.Fst.resampled <- fst.est,
+		Qst	<- c("Estimated Qst" = qst.obs, 
+				"Lower Bound CI" = quantile(qst.neut,0.025,na.rm=TRUE), 
+				"Upper bound CI" = quantile(qst.neut,0.975,na.rm=TRUE)),
 		Qst.neutral	<- c(
 				"Qst Resampled" = mean(qst.neut, na.rm=TRUE), 
 				"Qst std. dev." = sd(qst.neut, na.rm=TRUE), 
 				"Qst 95% crit. values" = quantile(qst.neut,c(0.025,0.975), na.rm=TRUE), 
 				"Qst 99% crit. values" = quantile(qst.neut,c(0.005,0.995), na.rm=TRUE)),
+		Distribution.Qst.neutral <- qst.neut,
     	ANOVA.table	<- c(
 					"MS Pop" = qst.MS[[1]],
 					"MS Sire" = qst.MS[[2]],
@@ -259,6 +277,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 				"Calculated Qst-Fst" = Q.obsMinusF.obs, 
 				"Lower Bound crit. value" = quantile(sim.est,0.025,na.rm=TRUE), 
 				"Upper bound crit. value" = quantile(sim.est,0.975,na.rm=TRUE)),
+		Distribution.QminusF <- sim.est,
 	    QminusF.p.values <- c(  
     			"Lower one-tailed p value" = left.one.tailed.p, 
        			"Upper one-tailed p value" = right.one.tailed.p, 
@@ -271,11 +290,16 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
     			"Fst std. dev." = sd(fst.est, na.rm=TRUE), 
     			"Fst 95% CI" = quantile(fst.est,c(0.025,0.975), na.rm=TRUE), 
     			"Fst 99% CI" = quantile(fst.est,c(0.005,0.995), na.rm=TRUE)),
+		Distribution.Fst.resampled <- fst.est,
+		Qst	<- c("Estimated Qst" = qst.obs, 
+				"Lower Bound CI" = quantile(qst.neut,0.025,na.rm=TRUE), 
+				"Upper bound CI" = quantile(qst.neut,0.975,na.rm=TRUE)),
 		Qst.neutral	<- c(
 				"Qst Resampled" = mean(qst.neut, na.rm=TRUE), 
 				"Qst std. dev." = sd(qst.neut, na.rm=TRUE), 
 				"Qst 95% crit. values" = quantile(qst.neut,c(0.025,0.975), na.rm=TRUE), 
 				"Qst 99% crit. values" = quantile(qst.neut,c(0.005,0.995), na.rm=TRUE)),
+		Distribution.Qst.neutral <- qst.neut,
     	ANOVA.table	<- c(
 					"MS Pop" = qst.MS[[1]],
 					"MS Dam" = qst.MS[[2]],

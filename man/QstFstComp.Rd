@@ -51,16 +51,22 @@ Returns either a concise list of a subset of results or a full list with all pos
  Concise list returns (default)
  \itemize{
  \item 	the calculated difference between Qst and Fst with 95\% critical values,
- \item 	one- and two- tailed p-values for this difference, and
+ \item 	one- and two- tailed p-values for this difference,
+ \item 	the Fst value estimated from the data with 95\% confidence intervals,
+ \item 	the Qst value estimated from the data with 95\% confidence intervals, and
  \item 	the additive genetic variance for the trait with 95\% confidence intervals
  }
  Full list returns
  \itemize{
  		\item  the calculated difference between Qst and Fst with 95\% critical values,
  		\item  one- and two- tailed p-values for this difference,
- 		\item  the Fst as calculated from the genetic data provided, with 95\% confidence intervals,
+ 		\item  a list of all Qst-Fst values for plotting the distribution of Qst-Fst,
+ 		\item  the Fst value estimated from the data with 95\% confidence intervals,
  		\item  the resampled Fst as calculated from bootstrapping across simulations, with standard deviation and 95\% confidence intervals,
+ 		\item  a list of all resampled Fst values for plotting the distribution of Fst,
+ 		\item  the Qst value estimated from the data with 95\% confidence intervals,
  		\item  the resampled neutral Qst as calculated from bootstrapping across simulations, with standard deviation and 95\% critical values,
+ 		\item  a list of all resampled Qst values for plotting the distribution of the neutral Qst,
  		\item  the ANOVA table for the calculated means squared, n coefficients, and degrees of freedom,
  		\item  the additive genetic variance for the trait with 95\% confidence intervals, and
  		\item  the coefficient of additive genetic variance for the trait with 95\% confidence intervals

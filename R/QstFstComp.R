@@ -1084,7 +1084,7 @@ NULL
 #' \describe{
 #'  \item{pop}{population of origin}
 #'  \item{q_hat}{columns 2 through 16 are the q_hat values for each locus in each population}
-#'	\item{q_var}{columns 17 through 31 are the q_hat variances for each locus in each population}
+#'  \item{q_var}{columns 17 through 31 are the q_hat variances for each locus in each population}
 #' }
 #'
 #' @docType data

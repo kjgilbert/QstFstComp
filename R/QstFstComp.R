@@ -115,7 +115,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
   		qst.MS <- MeanSq.unbalanced.sire(qst.dat)
   		qst.temp <- QSTfromSireModel(qst.MS$MSpops, qst.MS$MSsires, qst.MS$MSdams, qst.MS$MSwithin, 
   				qst.MS$n0primeprime, qst.MS$n0prime, qst.MS$n0, qst.MS$nc0prime, qst.MS$nc0, qst.MS$ncb0,
-  				dam.offspring.relatedness=dam.offspring.relatedness)
+  				dam.offspring.relatedness)
    		qst.obs <- qst.temp$Qst
    		mean.trait.value <- mean(qst.dat[,4], na.rm=TRUE) # this takes the mean of all trait values across all ind.s, no bootstrapping
 		Va <- qst.temp$Va
@@ -125,7 +125,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
   	if(breeding.design=="half.sib.dam"){
   		qst.MS <- MeanSq.unbalanced.dam(qst.dat)
   		qst.obs <- QSTfromDamModel(qst.MS$MSpops,qst.MS$MSdams,qst.MS$MSwithin,qst.MS$n0prime,qst.MS$n0,qst.MS$nb0,
-  			dam.offspring.relatedness=dam.offspring.relatedness)
+  			dam.offspring.relatedness)
    		mean.trait.value <- mean(qst.dat[,3], na.rm=TRUE) # this takes the mean of all trait values across all ind.s, no bootstrapping  
 		Va <- 1/dam.offspring.relatedness*(qst.MS$MSdams-qst.MS$MSwithin)/qst.MS$n0
 		if(Va < 0){Va <- 0}	# if Va includes negative values, the distribution is truncated to zero

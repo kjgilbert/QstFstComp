@@ -166,7 +166,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 	if(AFLP==TRUE){	fst.repl <- fst.sample.aflp(fst.data, var.dat, nloci) }
    #2. get a simulated replicate of Qst by sampling the null distribution 					 
   	if(breeding.design=="half.sib.sire") qst.repl <- qst.parboot.siremodel(qst.MS, fst.obs)[[1]] # this function now spits out Qst and Va, just need the Qst here
-  	if(breeding.design=="half.sib.dam") qst.repl <- qst.parboot.dammodel(qst.MS, fst.obs)
+  	if(breeding.design=="half.sib.dam") qst.repl <- qst.parboot.dammodel(qst.MS, fst.obs, dam.offspring.relatedness)
    #3. get the simulated replicate of Qst - Fst, and store it
     sim.est[i] <- qst.repl - fst.repl  
     #store values
@@ -175,7 +175,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 
     #bootstraps for Qst and Va
  	 if(breeding.design=="half.sib.sire") { temp <- qstVa.parbootForCI.siremodel(qst.MS) }
-	 if(breeding.design=="half.sib.dam") { temp <- qstVa.parbootForCI.dammodel(qst.MS) }
+	 if(breeding.design=="half.sib.dam") { temp <- qstVa.parbootForCI.dammodel(qst.MS, dam.offspring.relatedness) }
      qstForCI.est[i] <- temp[1]
      Va.est[i] <- temp[2]
      if(Va.est[i] < 0){Va.est[i] <- 0}	# if Va includes negative values, the distribution is truncated to zero
@@ -623,7 +623,7 @@ qst.parboot.dammodel <- function(MSdflist, meanFst, dam.offspring.relatedness){
  
   MSpopNeutResample <- MSpopNeut * rchisq(1,MSdflist$dfpops) / MSdflist$dfpops
 
-  sim.qst <- QSTfromDamModel(MSpopNeutResample,MSdamsResample,MSwithinResample,MSdflist$n0prime,MSdflist$n0,MSdflist$nb0)  
+  sim.qst <- QSTfromDamModel(MSpopNeutResample,MSdamsResample,MSwithinResample,MSdflist$n0prime,MSdflist$n0,MSdflist$nb0, dam.offspring.relatedness)  
   return(sim.qst)
 }
 ###########################################################################
@@ -673,7 +673,7 @@ qstVa.parbootForCI.dammodel <- function(MSdflist, dam.offspring.relatedness){
   MSwithinResample <- MSdflist$MSwithin * rchisq(1,MSdflist$dfwithin) / MSdflist$dfwithin
   MSpopResample <- MSdflist$MSpops * rchisq(1,MSdflist$dfpops) / MSdflist$dfpops
   
-  sim.qstForCI <- QSTfromDamModel(MSpopResample,MSdamsResample,MSwithinResample,MSdflist$n0prime,MSdflist$n0,MSdflist$nb0)  
+  sim.qstForCI <- QSTfromDamModel(MSpopResample,MSdamsResample,MSwithinResample,MSdflist$n0prime,MSdflist$n0,MSdflist$nb0, dam.offspring.relatedness)  
   sim.Va <- 1/dam.offspring.relatedness*(MSdamsResample-MSwithinResample)/MSdflist$n0
   
   return(c(sim.qstForCI, sim.Va))

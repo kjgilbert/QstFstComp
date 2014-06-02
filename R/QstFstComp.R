@@ -549,7 +549,7 @@ MeanSq.unbalanced.dam <- function(dat){
 #
 # Calculating Qst from the sire halfsib model, with arbitrary numbers of dams per sire and offspring per dam
 
-QSTfromSireModel <- function(MSpops, MSsires, MSdams, MSwithin, n0primeprime, n0prime, n0, nc0prime, nc0, ncb0){
+QSTfromSireModel <- function(MSpops, MSsires, MSdams, MSwithin, n0primeprime, n0prime, n0, nc0prime, nc0, ncb0, dam.offspring.relatedness=dam.offspring.relatedness){
   sigma2dams <- (MSdams-MSwithin)/n0
   sigma2sires <- (MSsires - MSwithin - n0prime*sigma2dams)/nc0
   sigma2pops <- (MSpops - MSwithin - n0primeprime*sigma2dams - nc0prime*sigma2sires)/ncb0
@@ -569,7 +569,7 @@ QSTfromSireModel <- function(MSpops, MSsires, MSdams, MSwithin, n0primeprime, n0
 #
 # Calculating Qst from the dam halfsib model, assuming that the offpsring of dams are all by unique fathers
 
-QSTfromDamModel <- function(MSpops,MSdams,MSwithin,n0prime,n0,nb0){
+QSTfromDamModel <- function(MSpops,MSdams,MSwithin,n0prime,n0,nb0, dam.offspring.relatedness=dam.offspring.relatedness){
   sigma2dams <- (MSdams-MSwithin)/n0
   sigma2pops <- (MSpops-sigma2dams*n0prime-MSwithin)/nb0
   VA <- 1/dam.offspring.relatedness*sigma2dams
@@ -589,7 +589,7 @@ QSTfromDamModel <- function(MSpops,MSdams,MSwithin,n0prime,n0,nb0){
 # distribution based on half-sib sire model. This requires MS for sires, dams and residuals,
 # along with the various n's from the nested ANOVA and dfs for each level (These are all encapsulated in the results list from MeanSq.unbalanced.sire.)
 	
-qst.parboot.siremodel <- function(MSdflist, meanFst){
+qst.parboot.siremodel <- function(MSdflist, meanFst, dam.offspring.relatedness=dam.offspring.relatedness){
   MSsiresResample <- MSdflist$MSsires * rchisq(1,MSdflist$dfsires) / MSdflist$dfsires
   MSdamsResample <- MSdflist$MSdams * rchisq(1,MSdflist$dfdam) / MSdflist$dfdam
   MSwithinResample <- MSdflist$MSwithin * rchisq(1,MSdflist$dfwithin) / MSdflist$dfwithin
@@ -613,7 +613,7 @@ qst.parboot.siremodel <- function(MSdflist, meanFst){
 # distribution based on half-sib dam model. This requires MS for dams and residuals,
 # along with the n0 value from the nested ANOVA and dfs for each level	
 
-qst.parboot.dammodel <- function(MSdflist, meanFst){
+qst.parboot.dammodel <- function(MSdflist, meanFst, dam.offspring.relatedness=dam.offspring.relatedness){
   MSdamsResample <- MSdflist$MSdams * rchisq(1,MSdflist$dfdam) / MSdflist$dfdam
   MSwithinResample <- MSdflist$MSwithin * rchisq(1,MSdflist$dfwithin) / MSdflist$dfwithin
  
@@ -637,7 +637,7 @@ qst.parboot.dammodel <- function(MSdflist, meanFst){
 #of O'Hara and Merila. It also returns a parametric bootrap value for Va. This
 #requires MS for sires, dams and residuals, along with the n's and dfs for each level
 
-qstVa.parbootForCI.siremodel <- function(MSdflist){
+qstVa.parbootForCI.siremodel <- function(MSdflist, dam.offspring.relatedness=dam.offspring.relatedness){
   MSsiresResample <- MSdflist$MSsires * rchisq(1,MSdflist$dfsires) / MSdflist$dfsires
   MSdamsResample <- MSdflist$MSdams * rchisq(1,MSdflist$dfdam) / MSdflist$dfdam
   MSwithinResample <- MSdflist$MSwithin * rchisq(1,MSdflist$dfwithin) / MSdflist$dfwithin
@@ -667,7 +667,7 @@ qstVa.parbootForCI.siremodel <- function(MSdflist){
 # requires MS for dams and residuals, along with the n0 value from the nested
 # ANOVA and dfs for each level
 
-qstVa.parbootForCI.dammodel <- function(MSdflist){
+qstVa.parbootForCI.dammodel <- function(MSdflist, dam.offspring.relatedness=dam.offspring.relatedness){
   MSdamsResample <- MSdflist$MSdams * rchisq(1,MSdflist$dfdam) / MSdflist$dfdam
   MSwithinResample <- MSdflist$MSwithin * rchisq(1,MSdflist$dfwithin) / MSdflist$dfwithin
   MSpopResample <- MSdflist$MSpops * rchisq(1,MSdflist$dfpops) / MSdflist$dfpops

@@ -4,7 +4,7 @@
 \title{Compare Qst to Fst}
 \usage{
 QstFstComp(fst.dat, qst.dat, numpops, nsim = 1000, AFLP = FALSE,
-  breeding.design, output = "concise")
+  breeding.design, dam.offspring.relatedness = 0.25, output = "concise")
 }
 \arguments{
 \item{fst.dat}{A data frame with the first column indicating population of origin and
@@ -40,6 +40,8 @@ QstFstComp(fst.dat, qst.dat, numpops, nsim = 1000, AFLP = FALSE,
  \item     "half.sib.dam" is a half sib design with dam nested within population
          which works for either balanced or unbalanced sampling designs
  }}
+
+\item{dam.offspring.relatedness}{relatedness between offspring in the dam model, default is 1/4, i.e. half-sib}
 
 \item{output}{whether to output full or concise results, see details below}
 }

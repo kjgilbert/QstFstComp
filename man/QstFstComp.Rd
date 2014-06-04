@@ -33,7 +33,7 @@ QstFstComp(fst.dat, qst.dat, numpops, nsim = 1000, AFLP = FALSE,
 \item{AFLP}{whether or not to use AFLP data}
 
 \item{breeding.design}{the breeding design used when collecting the trait data
- OPTIONS for breeding design:
+ There are two options for breeding design:
  \enumerate{
  \item     "half.sib.sire" is a half sib design with dam nested within sire nested within
          population which works for either balanced or unbalanced sampling designs
@@ -46,7 +46,8 @@ QstFstComp(fst.dat, qst.dat, numpops, nsim = 1000, AFLP = FALSE,
 \item{output}{whether to output full or concise results, see details below}
 }
 \value{
-Returns either a concise list of a subset of results or a full list with all possible results:
+Returns either a concise list of a subset of results or a full list with all possible results. Both output
+ options write the vector of Qst-Fst values to a text file.
 
  Concise list returns (default)
  \itemize{

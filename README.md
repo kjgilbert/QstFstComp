@@ -6,7 +6,7 @@ An R function to compare the *Q<sub>ST</sub>* of a single phenotypic trait to th
 
 [Gilbert and Whitlock in prep.](DOI goes here or url) describes the use of these procedures and their derivation. If you use this method, please cite:
 
-&nbsp;&nbsp;&nbsp; Gilbert KJ and MC Whitlock (*In prep.*) *Q<sub>ST</sub>* *F<sub>ST</sub>* comparisons with unbalanced half-sib designs.
+&nbsp;&nbsp;&nbsp; Gilbert KJ and MC Whitlock (*Submitted*) *Q<sub>ST</sub>* *F<sub>ST</sub>* comparisons with unbalanced half-sib designs.
 
 The method (and this code) is based on [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055) which may also be cited.
 
@@ -105,5 +105,5 @@ QstFstComp(fst.dat = MarkerInfo, qst.dat = TraitInfo, numpops = XXX, breeding.de
 
 Replace `XXX` with the number of populations included in your study. (This should be the same number for both the *F<sub>ST</sub>* and *Q<sub>ST</sub>* data sets.) Replace `"half.sib.dam”` with `“half.sib.sire”` if you are using the half-sib sire model. If using the half-sib dam model, but with different relatedness of offspring, this can be accommodated by changing the default parameter, `dam.offspring.relatedness=0.25` from the default of 1/4 to the desired value.
 
-Add a parameter `output = “full”` to have the function produce a longer list of output values. The distributions of *Q<sub>ST</sub>*, *F<sub>ST</sub>*, and *Q<sub>ST</sub>*-*F<sub>ST</sub>* can be plotted from vectors output with option "full". See the help page `?QstFstComp` for more details on output values and example analyses.
+Add a parameter `output = “full”` to have the function produce a longer list of output values. See the help page `?QstFstComp` for more details on output values and example analyses. The distribution of *Q<sub>ST</sub>*-*F<sub>ST</sub>* can be plotted from the vector of values which is automatically output to a text file in the current working directory.
 

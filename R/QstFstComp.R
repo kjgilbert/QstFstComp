@@ -188,6 +188,12 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
      CVa.est[i] <- sqrt(Va.est[i])/mean.trait.value * 100
   }
   
+  # output the vector of resampled Q-F values; can be used for plotting the distribution
+  # file is output to working directory and named from the timestamp
+  time.stamp <- Sys.time()
+  formatted.time.stamp <- gsub(" ", "_", time.stamp)
+  formatted.time.stamp <- gsub(":", "-", formatted.time.stamp)
+  writeLines(as.character(sim.est), paste("QminusFvalues_", formatted.time.stamp, ".txt", sep=""))
 
   # calculate the p-value for the difference between the neutral qst and fst
   diff.repl <- qst.neut - fst.est
@@ -203,6 +209,8 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 				"Calculated Qst-Fst" = Q.obsMinusF.obs, 
 				"Lower Bound crit. value" = quantile(sim.est,0.025,na.rm=TRUE), 
 				"Upper bound crit. value" = quantile(sim.est,0.975,na.rm=TRUE)),
+	    Distribution <- paste("Qst-Fst values output to file:",
+	    	paste(getwd(), "/QminusFvalues_", formatted.time.stamp, ".txt", sep="")),
 	    QminusF.p.values <- c( 
     			"Lower one-tailed p value" = left.one.tailed.p, 
        			"Upper one-tailed p value" = right.one.tailed.p, 
@@ -213,7 +221,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 		Qst	<- c("Estimated Qst" = qst.obs, 
 				"Lower Bound CI" = quantile(qst.neut,0.025,na.rm=TRUE), 
 				"Upper bound CI" = quantile(qst.neut,0.975,na.rm=TRUE)),
-    	Va  <- c("Va"=Va, 
+    	Va  <- c("Va"= Va, 
     			"Lower bound CI" = quantile(Va.est,0.025,na.rm=TRUE), 
     			"Upper bound CI" = quantile(Va.est,0.975,na.rm=TRUE))
 	))
@@ -225,7 +233,10 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 				"Calculated Qst-Fst" = Q.obsMinusF.obs, 
 				"Lower Bound crit. value" = quantile(sim.est,0.025,na.rm=TRUE), 
 				"Upper bound crit. value" = quantile(sim.est,0.975,na.rm=TRUE)),
-		Distribution.QminusF <- sim.est,
+	    Distribution <- paste("Qst-Fst values output to file:",
+	    	paste(getwd(), "/QminusFvalues_", formatted.time.stamp, ".txt", sep="")),
+#		Distribution.QminusF <- sim.est, 
+# uncomment the above line if you want to output a vector of the distribution of Q-F values to the console
 	    QminusF.p.values <- c(  
     			"Lower one-tailed p value" = left.one.tailed.p, 
        			"Upper one-tailed p value" = right.one.tailed.p, 
@@ -238,7 +249,8 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
     			"Fst std. dev." = sd(fst.est, na.rm=TRUE), 
     			"Fst 95% CI" = quantile(fst.est,c(0.025,0.975), na.rm=TRUE), 
     			"Fst 99% CI" = quantile(fst.est,c(0.005,0.995), na.rm=TRUE)),
-		Distribution.Fst.resampled <- fst.est,
+#		Distribution.Fst.resampled <- fst.est, 
+# uncomment the above line if you want to output a vector of the distribution of resampled Fst values
 		Qst	<- c("Estimated Qst" = qst.obs, 
 				"Lower Bound CI" = quantile(qst.neut,0.025,na.rm=TRUE), 
 				"Upper bound CI" = quantile(qst.neut,0.975,na.rm=TRUE)),
@@ -247,7 +259,8 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 				"Qst std. dev." = sd(qst.neut, na.rm=TRUE), 
 				"Qst 95% crit. values" = quantile(qst.neut,c(0.025,0.975), na.rm=TRUE), 
 				"Qst 99% crit. values" = quantile(qst.neut,c(0.005,0.995), na.rm=TRUE)),
-		Distribution.Qst.neutral <- qst.neut,
+#		Distribution.Qst.neutral <- qst.neut, 
+# uncomment the above line if you want to output a vector of the distribution of resampled Qst values
     	ANOVA.table	<- c(
 					"MS Pop" = qst.MS[[1]],
 					"MS Sire" = qst.MS[[2]],
@@ -277,7 +290,10 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 				"Calculated Qst-Fst" = Q.obsMinusF.obs, 
 				"Lower Bound crit. value" = quantile(sim.est,0.025,na.rm=TRUE), 
 				"Upper bound crit. value" = quantile(sim.est,0.975,na.rm=TRUE)),
-		Distribution.QminusF <- sim.est,
+	    Distribution <- paste("Qst-Fst values output to file:",
+	    	paste(getwd(), "/QminusFvalues_", formatted.time.stamp, ".txt", sep="")),
+#		Distribution.QminusF <- sim.est,
+# uncomment the above line if you want to output a vector of the distribution of Q-F values to the console
 	    QminusF.p.values <- c(  
     			"Lower one-tailed p value" = left.one.tailed.p, 
        			"Upper one-tailed p value" = right.one.tailed.p, 
@@ -290,7 +306,8 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
     			"Fst std. dev." = sd(fst.est, na.rm=TRUE), 
     			"Fst 95% CI" = quantile(fst.est,c(0.025,0.975), na.rm=TRUE), 
     			"Fst 99% CI" = quantile(fst.est,c(0.005,0.995), na.rm=TRUE)),
-		Distribution.Fst.resampled <- fst.est,
+#		Distribution.Fst.resampled <- fst.est, 
+# uncomment the above line if you want to output a vector of the distribution of resampled Fst values
 		Qst	<- c("Estimated Qst" = qst.obs, 
 				"Lower Bound CI" = quantile(qst.neut,0.025,na.rm=TRUE), 
 				"Upper bound CI" = quantile(qst.neut,0.975,na.rm=TRUE)),
@@ -299,7 +316,8 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 				"Qst std. dev." = sd(qst.neut, na.rm=TRUE), 
 				"Qst 95% crit. values" = quantile(qst.neut,c(0.025,0.975), na.rm=TRUE), 
 				"Qst 99% crit. values" = quantile(qst.neut,c(0.005,0.995), na.rm=TRUE)),
-		Distribution.Qst.neutral <- qst.neut,
+#		Distribution.Qst.neutral <- qst.neut, 
+# uncomment the above line if you want to output a vector of the distribution of resampled Qst values
     	ANOVA.table	<- c(
 					"MS Pop" = qst.MS[[1]],
 					"MS Dam" = qst.MS[[2]],

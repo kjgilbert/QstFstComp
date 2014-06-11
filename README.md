@@ -35,7 +35,7 @@ There is only one function to run the analysis from the package: `QstFstComp`.  
 The procedure requires two input data files described in the following sections and can then be run with the steps outlined below. 
 
 #### Step 1: *F<sub>ST</sub>* INPUT FILE
-Data from genetic markers are expected to be in a .csv format, with the first line giving column names.
+Data from genetic markers are expected to be in a .csv format, with the first row giving column names.
 
 *F<sub>ST</sub>* is calculated in two different ways, and the user must choose which method to use. The default is the [Weir and Cockerham (1984)](http://www.jstor.org/discover/10.2307/2408641?uid=2&uid=4&sid=21104217684983) method (`AFLP = FALSE`), as first implemented in [Whitlock and Guillaume (2009)](http://www.genetics.org/content/183/3/1055). If using this method, the genetic data (fst.dat) must be a data frame where each row is an individual and the first column indicates population of origin and the following columns represent genotypes at loci (as in hierfstat package). 
 
@@ -57,7 +57,7 @@ See `data(aflp)` as an example.
 
 Trait data for the estimation of *Q<sub>ST</sub>* (qst.dat) should be in a .csv file with column names in the first row. Different formatting is required depending on whether the user wishes to analyze data sampled from a half-sib dam model (dams nested within populations with all offspring coming from separate sires) or a half-sib sire model (dams nested within sires, sires nested within populations, with offspring coming from each dam that shares a sire across other dams).
 
-For the half-sib dam model (`breeding.design = "half.sib.dam"`), there must be 3 columns of data where each row after the header contains the trait data for one individual and its identifiers for the population, sire, and dam it originated from:
+For the half-sib dam model (`breeding.design = "half.sib.dam"`), there must be 3 columns of data where each row after the header contains the trait data for one individual and its identifiers for the population and dam it originated from:
 - column 1 identifies the population of origin. 	Each population should have a unique name or number.
 - column 2 identifies the dam (mother) of the offspring. Each dam should have a unique name or number (i.e., a dam from one population should never have the same name as a dam from another population).
 - column 3 is the numerical value of the trait in question for the individual identified.

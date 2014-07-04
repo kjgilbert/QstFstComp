@@ -221,8 +221,8 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 				"Lower Bound CI" = quantile(fst.est,0.025,na.rm=TRUE), 
 				"Upper bound CI" = quantile(fst.est,0.975,na.rm=TRUE)),
 		Qst	<- c("Estimated Qst" = qst.obs, 
-				"Lower Bound CI" = quantile(qst.neut,0.025,na.rm=TRUE), 
-				"Upper bound CI" = quantile(qst.neut,0.975,na.rm=TRUE)),
+				"Lower Bound CI" = quantile(qstForCI.est,0.025,na.rm=TRUE), 
+				"Upper bound CI" = quantile(qstForCI.est,0.975,na.rm=TRUE)),
     	Va  <- c("Va"= Va, 
     			"Lower bound CI" = quantile(Va.est,0.025,na.rm=TRUE), 
     			"Upper bound CI" = quantile(Va.est,0.975,na.rm=TRUE))
@@ -254,8 +254,8 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 #		Distribution.Fst.resampled <- fst.est, 
 # uncomment the above line if you want to output a vector of the distribution of resampled Fst values
 		Qst	<- c("Estimated Qst" = qst.obs, 
-				"Lower Bound CI" = quantile(qst.neut,0.025,na.rm=TRUE), 
-				"Upper bound CI" = quantile(qst.neut,0.975,na.rm=TRUE)),
+				"Lower Bound CI" = quantile(qstForCI.est,0.025,na.rm=TRUE), 
+				"Upper bound CI" = quantile(qstForCI.est,0.975,na.rm=TRUE)),
 		Qst.neutral	<- c(
 				"Qst Resampled" = mean(qst.neut, na.rm=TRUE), 
 				"Qst std. dev." = sd(qst.neut, na.rm=TRUE), 
@@ -311,8 +311,8 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 #		Distribution.Fst.resampled <- fst.est, 
 # uncomment the above line if you want to output a vector of the distribution of resampled Fst values
 		Qst	<- c("Estimated Qst" = qst.obs, 
-				"Lower Bound CI" = quantile(qst.neut,0.025,na.rm=TRUE), 
-				"Upper bound CI" = quantile(qst.neut,0.975,na.rm=TRUE)),
+				"Lower Bound CI" = quantile(qstForCI.est,0.025,na.rm=TRUE), 
+				"Upper bound CI" = quantile(qstForCI.est,0.975,na.rm=TRUE)),
 		Qst.neutral	<- c(
 				"Qst Resampled" = mean(qst.neut, na.rm=TRUE), 
 				"Qst std. dev." = sd(qst.neut, na.rm=TRUE), 

@@ -84,6 +84,7 @@
 #'  		\item  the additive genetic variance for the trait with 95\% confidence intervals, and
 #'  		\item  the coefficient of additive genetic variance for the trait with 95\% confidence intervals
 #'  }
+#'  Be mindful of the fact that with a small number of loci, bootstrapped confidence intervals of Fst can be less accurate.
 #'
 #' @author Kimberly J Gilbert & Michael C Whitlock
 #'
@@ -170,7 +171,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
   #simulating
   for(i in 1:nsim) {
    #1. Fst simulation replicate; sample nloci from the neutral markers, with replacement
-    if(AFLP==FALSE){ fst.repl <- fst.sample(fst.dat, nalleles) }
+    if(AFLP==FALSE){ fst.repl <- fst.sample(abc.mat, nalleles) }
 	if(AFLP==TRUE){	fst.repl <- fst.sample.aflp(fst.data, var.dat, nloci) }
    #2. get a simulated replicate of Qst by sampling the null distribution 					 
   	if(breeding.design=="half.sib.sire") qst.repl <- qst.parboot.siremodel(qst.MS, fst.obs)[[1]] # this function now spits out Qst and Va, just need the Qst here

@@ -72,6 +72,7 @@ Returns either a concise list of a subset of results or a full list with all pos
  		\item  the additive genetic variance for the trait with 95\% confidence intervals, and
  		\item  the coefficient of additive genetic variance for the trait with 95\% confidence intervals
  }
+ Be mindful of the fact that with a small number of loci, bootstrapped confidence intervals of Fst can be less accurate.
 }
 \description{
 Compares the QST of a single phenotypic trait to the mean FST of series of marker loci.

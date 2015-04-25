@@ -97,7 +97,7 @@ QstFstComp(aflp, hsdam, numpops=15, nsim=100, AFLP=TRUE, breeding.design="half.s
 Kimberly J Gilbert & Michael C Whitlock
 }
 \references{
-Gilbert KJ and MC Whitlock (2015) \emph{Qst} \emph{Fst} comparisons with unbalanced half-sib designs. \emph{Molecular Ecology Resources}, 15(2), 262-267.
+Gilbert KJ and MC Whitlock (2015) \href{http://onlinelibrary.wiley.com/doi/10.1111/1755-0998.12303/abstract}{\emph{Qst} \emph{Fst} comparisons with unbalanced half-sib designs.} \emph{Molecular Ecology Resources}, 15(2), 262-267.
 
 Whitlock MC and F Guillaume (2009) \href{http://www.genetics.org/content/183/3/1055}{Testing for spatially divergent selection: Comparing \emph{Qst} to \emph{Fst}.} \emph{Genetics}, 183:1055-1063.
 }

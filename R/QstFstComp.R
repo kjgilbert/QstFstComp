@@ -54,12 +54,13 @@
 #'
 #'  @param dam.offspring.relatedness relatedness between offspring in the dam model, default is 1/4, i.e. half-sib
 #'
-#'  @param output whether to output full or concise results, see details below
+#'  @param output whether to output fullf, concise, or concise without writing out vector of resampled Q-F values, see details below
 #'
 #'  @return
 #'
 #' Returns either a concise list of a subset of results or a full list with all possible results. Both output
-#'  options write the vector of Qst-Fst values to a text file.
+#'  options write the vector of Qst-Fst values to a text file. The third option of "concise_nowrite" returns only 
+#'  the concise output without writing the vector of Qst-Fst values to a text file.
 #'
 #'  Concise list returns (default)
 #'  \itemize{
@@ -196,7 +197,9 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
   time.stamp <- Sys.time()
   formatted.time.stamp <- gsub(" ", "_", time.stamp)
   formatted.time.stamp <- gsub(":", "-", formatted.time.stamp)
-  writeLines(as.character(sim.est), paste("QminusFvalues_", formatted.time.stamp, ".txt", sep=""))
+  if(output == "concise_nowrite"){
+  	writeLines(as.character(sim.est), paste("QminusFvalues_", formatted.time.stamp, ".txt", sep=""))
+  }
 
   # calculate the p-value for the difference between the neutral qst and fst
   diff.repl <- qst.neut - fst.est
@@ -207,7 +210,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
 	two.tailed.p <- 2*min(right.one.tailed.p, left.one.tailed.p)
 
 ## Create return items for either the concise or the full list of outputs, as specified from input parameters
-  if(output=="concise"){return(list(
+  if(output=="concise" || output=="concise_nowrite"){return(list(
 		QminusF	<- c(
 				"Calculated Qst-Fst" = Q.obsMinusF.obs, 
 				"Lower Bound crit. value" = quantile(sim.est,0.025,na.rm=TRUE), 

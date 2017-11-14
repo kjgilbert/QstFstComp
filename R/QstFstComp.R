@@ -197,7 +197,9 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
   time.stamp <- Sys.time()
   formatted.time.stamp <- gsub(" ", "_", time.stamp)
   formatted.time.stamp <- gsub(":", "-", formatted.time.stamp)
-  if(output != "concise_nowrite" || output != "full_nowrite"){
+  if(output == "concise_nowrite" || output == "full_nowrite"){
+  	print("No output file of Q minus F values written.")
+  }else{
   	writeLines(as.character(sim.est), paste("QminusFvalues_", formatted.time.stamp, ".txt", sep=""))
   }
 

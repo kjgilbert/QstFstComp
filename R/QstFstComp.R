@@ -54,13 +54,13 @@
 #'
 #'  @param dam.offspring.relatedness relatedness between offspring in the dam model, default is 1/4, i.e. half-sib
 #'
-#'  @param output whether to output fullf, concise, or concise without writing out vector of resampled Q-F values, see details below
+#'  @param output whether to output full, concise, or without writing out vector of resampled Q-F values, see details below
 #'
 #'  @return
 #'
 #' Returns either a concise list of a subset of results or a full list with all possible results. Both output
-#'  options write the vector of Qst-Fst values to a text file. The third option of "concise_nowrite" returns only 
-#'  the concise output without writing the vector of Qst-Fst values to a text file.
+#'  options write the vector of Qst-Fst values to a text file unless "_nowrite" is appended to the option, e.g. 
+#'  "concise_nowrite" returns only the concise output without writing output to a text file.
 #'
 #'  Concise list returns (default)
 #'  \itemize{
@@ -197,7 +197,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
   time.stamp <- Sys.time()
   formatted.time.stamp <- gsub(" ", "_", time.stamp)
   formatted.time.stamp <- gsub(":", "-", formatted.time.stamp)
-  if(output == "concise_nowrite"){
+  if(output != "concise_nowrite" || output != "full_nowrite"){
   	writeLines(as.character(sim.est), paste("QminusFvalues_", formatted.time.stamp, ".txt", sep=""))
   }
 
@@ -232,7 +232,7 @@ QstFstComp <- function(fst.dat, qst.dat, numpops, nsim=1000, AFLP=FALSE, breedin
     			"Upper bound CI" = quantile(Va.est,0.975,na.rm=TRUE))
 	))
   } # end return of concise list
-  if(output=="full"){
+  if(output=="full" || output=="full_nowrite"){
   	if(breeding.design=="half.sib.sire"){ # this full output has the ANOVA table for the half-sib sire breeding design
   		return(list(
 		QminusF	<- c(

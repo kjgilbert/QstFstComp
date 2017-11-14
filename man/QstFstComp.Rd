@@ -44,13 +44,13 @@ and the corresponding q-hat variances in the following columns, and \code{AFLP=T
 
  @param dam.offspring.relatedness relatedness between offspring in the dam model, default is 1/4, i.e. half-sib
 
- @param output whether to output fullf, concise, or concise without writing out vector of resampled Q-F values, see details below
+ @param output whether to output full, concise, or without writing out vector of resampled Q-F values, see details below
 
  @return
 
 Returns either a concise list of a subset of results or a full list with all possible results. Both output
- options write the vector of Qst-Fst values to a text file. The third option of "concise_nowrite" returns only 
- the concise output without writing the vector of Qst-Fst values to a text file.
+ options write the vector of Qst-Fst values to a text file unless "_nowrite" is appended to the option, e.g. 
+ "concise_nowrite" returns only the concise output without writing output to a text file.
 
  Concise list returns (default)
  \itemize{
